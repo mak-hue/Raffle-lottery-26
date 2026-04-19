@@ -15,7 +15,9 @@ import {Test} from "forge-std/Test.sol";
 import {Raffle} from "../../src/Raffle.sol";
 import {DeployRaffle} from "../../script/DeployRaffle.s.sol";
 import {HelperConfig} from "../../script/HelperConfig.s.sol";
-import {VRFCoordinatorV2_5Mock} from "lib/chainlink-brownie-contracts/contracts/src/v0.8/vrf/mocks/VRFCoordinatorV2_5Mock.sol";
+import {
+    VRFCoordinatorV2_5Mock
+} from "lib/chainlink-brownie-contracts/contracts/src/v0.8/vrf/mocks/VRFCoordinatorV2_5Mock.sol";
 
 contract RaffleIntegrationTest is Test {
     Raffle public raffle;
@@ -60,19 +62,16 @@ contract RaffleIntegrationTest is Test {
         // 3. Act: Chainlink Automation triggers performUpkeep
         // We record logs to catch the requestId emitted by the VRFCoordinator
         vm.recordLogs();
-        raffle.performUpkeep(""); 
-        
+        raffle.performUpkeep("");
+
         // entries[1] is usually the RandomWordsRequested event
         bytes32 requestId = vm.getRecordedLogs()[1].topics[1];
 
         // 4. Act: VRF Node (Mock) fulfills the request
         // This simulates the external VRF service calling back into your contract
         uint256 startingBalance = address(raffle).balance;
-        
-        VRFCoordinatorV2_5Mock(vrfCoordinator).fulfillRandomWords(
-            uint256(requestId),
-            address(raffle)
-        );
+
+        VRFCoordinatorV2_5Mock(vrfCoordinator).fulfillRandomWords(uint256(requestId), address(raffle));
 
         // 5. Assert: Verify the interaction results
         // - The winner should be the only player (PLAYER)
@@ -85,5 +84,4 @@ contract RaffleIntegrationTest is Test {
         assert(PLAYER.balance == (STARTING_USER_BALANCE - entranceFee) + startingBalance);
     }
 }
-
 
