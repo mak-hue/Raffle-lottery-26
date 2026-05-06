@@ -8,7 +8,7 @@ This project implements a fully automated, decentralized, and provably fair lott
 
 The contract is live on the **Ethereum Sepolia Testnet**.
 
-  * **Contract Address:** [`0x40F4b9205c130EBc55517d7B4Ff71D6805e83634`](https://www.google.com/search?q=%5Bhttps://sepolia.etherscan.io/address/0x40f4b9205c130ebc55517d7b4ff71d6805e83634%23code%5D\(https://sepolia.etherscan.io/address/0x40f4b9205c130ebc55517d7b4ff71d6805e83634%23code\))
+  * **Contract Address:** [`0x40F4b9205c130EBc55517d7B4Ff71D6805e83634`]([https://www.google.com/search?q=%5Bhttps://sepolia.etherscan.io/address/0x40f4b9205c130ebc55517d7b4ff71d6805e83634%23code%5D\(https://sepolia.etherscan.io/address/0x40f4b9205c130ebc55517d7b4ff71d6805e83634%23code\](https://sepolia.etherscan.io/address/0x40F4b9205c130EBc55517d7B4Ff71D6805e83634)))
   * **Network:** Sepolia (Testnet)
 
 -----
